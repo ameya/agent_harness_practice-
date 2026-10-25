@@ -1,0 +1,16 @@
+{
+  "incidents": [
+    {
+      "incident_id": "INC-1042",
+      "title": "Synthetic payment service connection acquisition timeouts",
+      "evidence": [
+        {"ref": "app-log-1", "observation": "Connection acquisition timed out after 30000 ms."},
+        {"ref": "db-health-1", "observation": "Database health: PASS."},
+        {"ref": "pool-1", "observation": "Pool connections: max 20, active 20, idle 0 (exhausted)."}
+      ],
+      "candidate_hypotheses": ["Application connection leak may explain pool exhaustion; root cause is unconfirmed."],
+      "missing_evidence": ["Connection lifecycle tracing or equivalent corroboration."],
+      "recommended_actions": ["Collect connection lifecycle traces for review; no action has been executed."]
+    }
+  ]
+}
